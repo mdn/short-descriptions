@@ -18,5 +18,5 @@ to learn more about MDN content, its authorship, and reuse.
 [The remainder of this repository is dedicated to the public domain (CC0
 1.0)](http://creativecommons.org/publicdomain/zero/1.0/). To the extent
 possible under law, the contributors have waived all copyright and related or
-neighboring rights to MDN short descriptions. See the [LICENSE](LICENSE) file
+neighboring rights to MDN short descriptions. See the [LICENSE.txt](LICENSE.txt) file
 for details.
