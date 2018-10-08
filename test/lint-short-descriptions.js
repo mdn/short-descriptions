@@ -104,37 +104,45 @@ const readDataFromURL = async (url) => {
 }
 
 const checkSummary = (summaryData, propertyName, url) => {
-  let status = true
+  let ok = true
+  const errors = []
+
   const summaryDom = new jsdom.JSDOM(summaryData)
   const summaryText = summaryDom.window.document.querySelector('body').textContent
 
-  console.log(`Checking \x1b[1m${propertyName}\x1b[0m (${url})`)
-
   if (!isLengthOK(summaryText)) {
-    status = false
-    console.error(`    ❌ ${propertyName} summary is too long. Expected <${lengthLimit} displayed characters, got ${summaryText.length}`)
-    console.error(`        ${summaryText.slice(0,180)}\x1b[41m${summaryText.slice(180)}\x1b[0m`)
+    ok = false
+    errors.push(`    ❌ ${propertyName} summary is too long. Expected <${lengthLimit} displayed characters, got ${summaryText.length}`)
+    errors.push(`       > ${summaryText.slice(0,180)}\x1b[41m${summaryText.slice(180)}\x1b[0m`)
   }
 
   if (!isFirstSentenceLengthOK(summaryText)) {
     const sentence = firstSentence(summaryText)
-    console.error(`    ⁉️  ${propertyName} summary's first sentence may be too long. Expected <${firstSentenceLengthLimit} displayed characters, got ${sentence.length}`)
-    console.error(`       ${sentence.slice(0, firstSentenceLengthLimit)}\x1b[41m${sentence.slice(firstSentenceLengthLimit)}\x1b[0m`)
+    errors.push(`    ⁉️  ${propertyName} summary's first sentence may be too long. Expected <${firstSentenceLengthLimit} displayed characters, got ${sentence.length}`)
+    errors.push(`       > ${sentence.slice(0, firstSentenceLengthLimit)}\x1b[41m${sentence.slice(firstSentenceLengthLimit)}\x1b[0m`)
   }
 
   const tagSet = getTagSet(summaryDom)
   if (!areTagsOK(tagSet)) {
-    status = false
-    console.error(`    ❌ ${propertyName} summary contains forbidden tags: ${forbiddenTags(tagSet).join(', ')}`)
+    ok = false
+    errors.push(`    ❌ ${propertyName} summary contains forbidden tags: ${forbiddenTags(tagSet).join(', ')}`)
   }
 
   if (!areAttrsOK(summaryDom)) {
-    status = false
+    ok = false
     const attrs = forbiddenAttrs(summaryDom)
-    console.error(`    ❌ ${propertyName} summary contains forbidden attributes: ${attrs.join(', ')}`)
+    errors.push(`    ❌ ${propertyName} summary contains forbidden attributes: ${attrs.join(', ')}`)
   }
 
-  status ? console.log(`✅ \x1b[1m${propertyName}\x1b[0m (${url}) is OK`) : console.error(`❌ \x1b[1m${propertyName}\x1b[0m (${url}) has problems, see above`)
+  if (ok) {
+    console.log(`✅ \x1b[1m${propertyName}\x1b[0m (${url}) is OK`)
+  }
+  else {
+    console.error(`❌ \x1b[1m${propertyName}\x1b[0m (${url}) has problems`)
+    while (errors.length) {
+      console.error(errors.shift())
+    }
+  }
 }
 
 const isLengthOK = (text) => lengthLimit > text.length
