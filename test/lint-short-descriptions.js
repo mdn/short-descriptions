@@ -118,6 +118,7 @@ const checkSummary = (summaryData, propertyName, url) => {
 
   if (!isFirstSentenceLengthOK(summaryText)) {
     const sentence = firstSentence(summaryText)
+    ok = false
     errors.push(`    ⁉️  ${propertyName} summary's first sentence may be too long. Expected <${firstSentenceLengthLimit} displayed characters, got ${sentence.length}`)
     errors.push(`       > ${sentence.slice(0, firstSentenceLengthLimit)}\x1b[41m${sentence.slice(firstSentenceLengthLimit)}\x1b[0m`)
   }
@@ -147,9 +148,7 @@ const checkSummary = (summaryData, propertyName, url) => {
 
 const isLengthOK = (text) => lengthLimit > text.length
 
-const isFirstSentenceLengthOK = (text) => {
-  return firstSentenceLengthLimit > firstSentence(text).length
-}
+const isFirstSentenceLengthOK = (text) => firstSentenceLengthLimit > firstSentence(text).length
 
 const firstSentence = (text) => {
   // a very simplistic attempt to match the first sentence of the summary
