@@ -11,6 +11,7 @@ const jsdom = require('jsdom')
 const properties = require('mdn-data').css.properties
 
 const lengthLimit = 180
+const firstSentenceLengthLimit = 150
 const allowed = {
   'A': ['href'],
   'CODE': [],
@@ -39,7 +40,7 @@ const main = async (args) => {
 
 const test = () => {
   const exampleOK = `The <strong><code>color</code></strong> CSS property sets the foreground <a href="https://developer.mozilla.org/docs/Web/CSS/color_value">color value</a> of an element's text and <a href="https://developer.mozilla.org/docs/Web/CSS/text-decoration">text decorations</a>. It also sets the <a href="https://developer.mozilla.org/docs/Web/CSS/currentcolor"><code>currentcolor</code></a> value, an indirect value on <em>other</em> properties.`
-  const exampleNotOK = `The <strong><code>color</code></strong> CSS property sets the foreground <a href="/en-US/docs/Web/CSS/color_value">color value</a> of an element's text content and <a href="/en-US/docs/Web/CSS/text-decoration">text decorations</a>. It also sets the <a href="/en-US/docs/Web/CSS/currentcolor" title="The &lt;color&gt; CSS data type represents a color in the sRGB color space. A &lt;color&gt; may also include an alpha-channel transparency value, indicating how the color should composite with its background."><code>currentcolor</code></a> value, which may be used as an indirect value on <em>other</em> properties, and is the default for other color properties, such as <a href="/en-US/docs/Web/CSS/border-color" title="The border-color CSS property is a shorthand property for setting the colors on all four sides of an element's border."><code>border-color</code></a>. <span>This tag is not allowed</span>. And neither is <br/>.`
+  const exampleNotOK = `The <strong><code>color</code></strong> CSS property sets the foreground <a href="/en-US/docs/Web/CSS/color_value">color value</a> of an element's text content and <a href="/en-US/docs/Web/CSS/text-decoration">text decorations</a> and also this sentence is much too long to be the first sentence of a short description. And the whole thing should be less than 180 characters. <span>And this enclosing span tag is not allowed</span>. And neither is hidden br tag <br/>.`
 
   console.log('-- Testing OK text --')
   checkSummary(exampleOK, 'color', 'https://developer.mozilla.example/thisIsNotARealURL')
@@ -81,6 +82,12 @@ const checkSummary = (summaryData, propertyName, url) => {
     console.error(`        ${summaryText.slice(0,180)}\x1b[41m${summaryText.slice(180)}\x1b[0m`)
   }
 
+  if (!isFirstSentenceLengthOK(summaryText)) {
+    const sentence = firstSentence(summaryText)
+    console.error(`    ⁉️  ${propertyName} summary's first sentence may be too long. Expected <${firstSentenceLengthLimit} displayed characters, got ${sentence.length}`)
+    console.error(`       ${sentence.slice(0, firstSentenceLengthLimit)}\x1b[41m${sentence.slice(firstSentenceLengthLimit)}\x1b[0m`)
+  }
+
   const tagSet = getTagSet(summaryDom)
   if (!areTagsOK(tagSet)) {
     status = false
@@ -97,6 +104,15 @@ const checkSummary = (summaryData, propertyName, url) => {
 }
 
 const isLengthOK = (text) => lengthLimit > text.length
+
+const isFirstSentenceLengthOK = (text) => {
+  return firstSentenceLengthLimit > firstSentence(text).length
+}
+
+const firstSentence = (text) => {
+  // a very simplistic attempt to match the first sentence of the summary
+  return text.replace(/\.(?!\d)/g, '.\1f').split('\1f')[0]
+}
 
 const areTagsOK = (tagSet) => forbiddenTags(tagSet).length === 0
 
