@@ -9,6 +9,7 @@
   "dependencies": {},
   "devDependencies": {
     "jsdom": "^12.2.0",
+    "mdn-data": "^2.0.0",
     "request": "^2.88.0"
   },
   "scripts": {

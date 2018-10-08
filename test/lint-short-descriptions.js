@@ -6,12 +6,9 @@
 // Run a self-test of this linter
 //    $ npm run lint-short-description -- --self-test
 
-const fs = require('fs');
-
 const request = require('request')
 const jsdom = require('jsdom')
-
-const properties = JSON.parse(fs.readFileSync('css/properties.json', 'utf-8'))
+const properties = require('mdn-data').css.properties
 
 const lengthLimit = 180
 const allowed = {
