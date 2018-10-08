@@ -66,7 +66,12 @@ const test = () => {
 const nameToURL = (property) => {
   // turn a CSS property name into an raw MDN page summary URL
   if (properties[property] === undefined) {
-    console.error(`${property} does not have an MDN URL`)
+    console.error(`${property} is not a known CSS property in mdn-data`)
+    process.exit(1)
+  }
+
+  if (properties[property].mdn_url === undefined) {
+    console.error(`${property} does not have an MDN URL in mdn-data`)
     process.exit(1)
   }
 
