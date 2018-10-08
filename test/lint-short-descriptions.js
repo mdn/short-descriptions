@@ -1,12 +1,12 @@
 // Examples:
-// Check the color property page summary on MDN:
-//    $ npm run lint-short-description color
+// Check the color property page summary on MDN Web Docs:
+//    $ npm run lint-short-descriptions color
 // Check the color and background-color properties' page summaries on MDN
-//    $ npm run lint-short-description color background-color
+//    $ npm run lint-short-descriptions color background-color
 // Check the contents of standard input as if it were a short description
-//    $ npm run lint-short-description -
-// Run a self-test of this linter
-//    $ npm run lint-short-description -- --self-test
+//    $ npm run lint-short-descriptions -
+// Demo mode
+//    $ npm run lint-short-descriptions -- --self-test
 
 const readline = require('readline')
 
