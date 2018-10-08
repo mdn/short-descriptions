@@ -126,13 +126,13 @@ const checkSummary = (summaryData, propertyName, url) => {
   const tagSet = getTagSet(summaryDom)
   if (!areTagsOK(tagSet)) {
     ok = false
-    errors.push(`    ❌ ${propertyName} summary contains forbidden tags: ${forbiddenTags(tagSet).join(', ')}`)
+    errors.push(`    ❌ ${propertyName} summary contains forbidden tags: ${forbiddenTags(tagSet).join(', ')}\x1b[0m`)
   }
 
   if (!areAttrsOK(summaryDom)) {
     ok = false
     const attrs = forbiddenAttrs(summaryDom)
-    errors.push(`    ❌ ${propertyName} summary contains forbidden attributes: ${attrs.join(', ')}`)
+    errors.push(`    ❌ ${propertyName} summary contains forbidden attributes: ${attrs.join(', ')}\x1b[0m`)
   }
 
   if (ok) {
