@@ -3,8 +3,12 @@
 //    $ npm run lint-short-description color
 // Check the color and background-color properties' page summaries on MDN
 //    $ npm run lint-short-description color background-color
+// Check the contents of standard input as if it were a short description
+//    $ npm run lint-short-description -
 // Run a self-test of this linter
 //    $ npm run lint-short-description -- --self-test
+
+const readline = require('readline')
 
 const request = require('request')
 const jsdom = require('jsdom')
@@ -27,8 +31,18 @@ const main = async (args) => {
   try {
     while (args.length) {
       let prop = args.shift()
-      let url = nameToURL(prop)
-      const summary = await getSummaryData(url)
+      let url = ''
+      let summary = ''
+
+      if (prop === '-') {
+        prop = 'standard input'
+        url = 'no URL'
+        summary = await readDataFromStdin()
+      }
+      else {
+        url = nameToURL(prop)
+        summary = await readDataFromURL(url)
+      }
 
       checkSummary(summary, prop, url)
     }
@@ -59,7 +73,22 @@ const nameToURL = (property) => {
   return `${properties[property].mdn_url}?summary&raw`
 }
 
-const getSummaryData = async (url) => {
+const readDataFromStdin = async () => {
+  // read text from standard input (returns a Promise)
+  return new Promise((resolve, reject) => {
+    const rl = readline.createInterface({
+      input: process.stdin,
+      output: process.stdout,
+      terminal: false
+    })
+    const lines = []
+
+    rl.on('line', (line) => lines.push(line))
+    rl.on('close', () => resolve(lines))
+  })
+}
+
+const readDataFromURL = async (url) => {
   // fetch URL (returns a Promise)
   return new Promise((resolve, reject) => {
     request.get(url, (error, response, body) => {
