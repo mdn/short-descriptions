@@ -20,6 +20,7 @@ The rest of this document is split into the following sections:
 
 * **Interface**: this describes, at a high level, how third party tools will be presented with short descriptions.
 * **Implementation**: this describes what we will do under the surface, to implement this interface.
+* **Work items**: this starts to break down the things that need to happen in the implementation.
 
 ## Interface
 
