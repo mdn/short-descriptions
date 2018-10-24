@@ -1,4 +1,4 @@
-# Guidelines for CSS short descriptions
+# Writing short descriptions
 
 Short descriptions will be consistent with the following guidelines:
 
