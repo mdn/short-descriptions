@@ -75,7 +75,8 @@ const nameToURL = (property) => {
     process.exit(1)
   }
 
-  return `${properties[property].mdn_url}?summary&raw`
+  const cacheBuster = Math.random().toString(36).substr(2, 5)
+  return `${properties[property].mdn_url}?raw&summary&${cacheBuster}`
 }
 
 const readDataFromStdin = async () => {
