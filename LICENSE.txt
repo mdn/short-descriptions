@@ -1,4 +1,5 @@
-NOTE: the following text does not apply to MDN prose content. See README.md for
+NOTE: the following text does not apply to MDN prose content in the
+descriptions directory. See README.md and descriptions/LICENSE.md for
 details.
 
 Creative Commons Legal Code

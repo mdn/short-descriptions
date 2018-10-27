@@ -8,7 +8,8 @@ don't have to.
 
 ## License
 
-Prose from MDN is by Mozilla Contributors and is licensed under [CC-BY-SA
+Prose from MDN, found in the `descriptions` directory, is by Mozilla
+Contributors and is licensed under [CC-BY-SA
 2.5](http://creativecommons.org/licenses/by-sa/2.5/). You are free to modify and
 share that content, if you attribute the work and distribute it under the same
 terms. Visit [About
