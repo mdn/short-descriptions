@@ -54,13 +54,44 @@ const main = async (args) => {
 
 const test = () => {
   const exampleOK = `The <strong><code>color</code></strong> CSS property sets the foreground <a href="https://developer.mozilla.org/docs/Web/CSS/color_value">color value</a> of an element's text and <a href="https://developer.mozilla.org/docs/Web/CSS/text-decoration">text decorations</a>. It also sets the <a href="https://developer.mozilla.org/docs/Web/CSS/currentcolor"><code>currentcolor</code></a> value, an indirect value on <em>other</em> properties.`;
-  const exampleNotOK = `The <strong><code>color</code></strong> CSS property sets the foreground <a href="/en-US/docs/Web/CSS/color_value">color value</a> of an element's text content and <a href="/en-US/docs/Web/CSS/text-decoration">text decorations</a> and also this sentence is much too long to be the first sentence of a short description. And the whole thing should be less than 180 characters. <span>And this enclosing span tag is not allowed</span>. And neither is hidden br tag <br/>.`;
+  const exampleNotOK = `The <strong><code>color</code></strong> CSS property sets the foreground <a href="/en-US/docs/Web/CSS/color_value">color value</a> of an element's text content and <a href="/en-US/docs/Web/CSS/text-decoration" name='notallowed'>text decorations</a> and also this sentence is much too long to be the first sentence of a short description. And the whole thing should be less than 180 characters. <span>And this enclosing span tag is not allowed</span>. And neither is hidden br tag <br/>.`;
 
   console.log('-- Testing OK text --');
   checkSummary(exampleOK, 'color', 'https://developer.mozilla.example/thisIsNotARealURL');
 
   console.log('-- Testing not OK text --');
   checkSummary(exampleNotOK, 'color', 'https://developer.mozilla.example/thisIsNotARealURL');
+};
+
+const checkSummary = (summaryData, propertyName, url) => {
+  const checks = [
+    checkLength,
+    checkFirstSentenceLength,
+    checkTags,
+    checkAttrs
+  ];
+
+  let ok = true;
+  const messages = [];
+
+  const summaryDom = new jsdom.JSDOM(summaryData);
+  const summaryText = summaryDom.window.document.querySelector('body').textContent;
+
+  for (const check of checks) {
+    const {status, errors} = check(propertyName, summaryText, summaryDom);
+    if (!status) {
+      ok = false;
+      messages.push(...errors);
+    }
+  }
+
+  if (ok) {
+    console.log(`✅ \x1b[1m${propertyName}\x1b[0m (${url}) is OK`);
+  }
+  else {
+    console.error(`❌ \x1b[1m${propertyName}\x1b[0m (${url}) has problems`);
+    messages.forEach((value) => console.log(value));
+  }
 };
 
 const nameToURL = (property) => {
@@ -104,46 +135,59 @@ const readDataFromURL = async (url) => {
   });
 };
 
-const checkSummary = (summaryData, propertyName, url) => {
-  let ok = true;
-  const errors = [];
-
-  const summaryDom = new jsdom.JSDOM(summaryData);
-  const summaryText = summaryDom.window.document.querySelector('body').textContent;
-
-  if (!isLengthOK(summaryText)) {
-    ok = false;
-    errors.push(`    ❌ ${propertyName} summary is too long. Expected ≤${lengthLimit} displayed characters, got ${summaryText.length}`);
-    errors.push(`       > ${summaryText.slice(0,180)}\x1b[41m${summaryText.slice(180)}\x1b[0m`);
+const checkLength = (propertyName, summaryText, summaryDom) => {
+  if (isLengthOK(summaryText)) {
+    return {status: true};
+  } else {
+    return {
+      status: false,
+      errors: [
+        `    ❌ ${propertyName} summary is too long. Expected ≤${lengthLimit} displayed characters, got ${summaryText.length}`,
+        `       > ${summaryText.slice(0,180)}\x1b[41m${summaryText.slice(180)}\x1b[0m`
+      ]
+    };
   }
+};
 
-  if (!isFirstSentenceLengthOK(summaryText)) {
-    const sentence = firstSentence(summaryText);
-    ok = false;
-    errors.push(`    ⁉️  ${propertyName} summary's first sentence may be too long. Expected ≤${firstSentenceLengthLimit} displayed characters, got ${sentence.length}`);
-    errors.push(`       > ${sentence.slice(0, firstSentenceLengthLimit)}\x1b[41m${sentence.slice(firstSentenceLengthLimit)}\x1b[0m`);
+const checkFirstSentenceLength = (propertyName, summaryText, summaryDom) => {
+  const sentence = firstSentence(summaryText);
+  if (isFirstSentenceLengthOK(summaryText)) {
+    return {status: true};
+  } else {
+    return {
+      status: false,
+      errors: [
+        `    ⁉️  ${propertyName} summary's first sentence may be too long. Expected ≤${firstSentenceLengthLimit} displayed characters, got ${sentence.length}`,
+        `       > ${sentence.slice(0, firstSentenceLengthLimit)}\x1b[41m${sentence.slice(firstSentenceLengthLimit)}\x1b[0m`
+      ]
+    };
   }
+};
 
+const checkTags = (propertyName, summaryText, summaryDom) => {
   const tagSet = getTagSet(summaryDom);
-  if (!areTagsOK(tagSet)) {
-    ok = false;
-    errors.push(`    ❌ ${propertyName} summary contains forbidden tags: ${forbiddenTags(tagSet).join(', ')}\x1b[0m`);
+  if (areTagsOK(tagSet)) {
+    return {status: true};
+  } else {
+    return {
+      status: false,
+      errors: [
+        `    ❌ ${propertyName} summary contains forbidden tags: ${forbiddenTags(tagSet).join(', ')}\x1b[0m`
+      ]
+    };
   }
+};
 
-  if (!areAttrsOK(summaryDom)) {
-    ok = false;
-    const attrs = forbiddenAttrs(summaryDom);
-    errors.push(`    ❌ ${propertyName} summary contains forbidden attributes: ${attrs.join(', ')}\x1b[0m`);
-  }
-
-  if (ok) {
-    console.log(`✅ \x1b[1m${propertyName}\x1b[0m (${url}) is OK`);
-  }
-  else {
-    console.error(`❌ \x1b[1m${propertyName}\x1b[0m (${url}) has problems`);
-    while (errors.length) {
-      console.error(errors.shift());
-    }
+const checkAttrs = (propertyName, summaryText, summaryDom) => {
+  if (areAttrsOK(summaryDom)) {
+    return {status: true};
+  } else {
+    return {
+      status: false,
+      errors: [
+        `    ❌ ${propertyName} summary contains forbidden attributes: ${forbiddenAttrs(summaryDom).join(', ')}\x1b[0m`
+      ]
+    };
   }
 };
 
