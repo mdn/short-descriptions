@@ -16,8 +16,9 @@
     "request": "^2.88.0"
   },
   "scripts": {
+    "lint-js": "eslint test/*.js scripts/*.js",
     "lint-short-descriptions": "node test/lint-short-descriptions.js",
-    "lint-js": "npx eslint test/*.js"
+    "scrape": "node scripts/scrape.js"
   },
   "repository": {
     "type": "git",
