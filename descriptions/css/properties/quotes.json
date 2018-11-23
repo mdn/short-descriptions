@@ -1,3 +1,9 @@
 {
-  "quotes": "The <strong><code>quotes</code></strong> <a href='https://developer.mozilla.org/docs/CSS'>CSS</a> property sets how quotation marks appear."
+  "css": {
+    "properties": {
+      "quotes": {
+        "__short_description": "The <strong><code>quotes</code></strong> <a href='https://developer.mozilla.org/docs/CSS'>CSS</a> property sets how quotation marks appear."
+      }
+    }
+  }
 }
