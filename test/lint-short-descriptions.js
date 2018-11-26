@@ -53,12 +53,7 @@ const readDataFromStdin = async () => new Promise((resolve) => {
   rl.on('close', () => resolve(lines));
 });
 
-const readDataFromURL = async url => new Promise((resolve, reject) => request.get(url, (error, response, body) => {
-  if (error) {
-    reject(error);
-  }
-  resolve(body);
-}));
+const readDataFromURL = async url => new Promise((resolve, reject) => request.get(url).on('error', reject).on('response', resolve));
 
 const isLengthOK = text => lengthLimit >= text.length;
 
