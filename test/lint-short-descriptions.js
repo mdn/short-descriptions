@@ -25,6 +25,9 @@ const allowed = {
   STRONG: [],
 };
 
+// ==========================
+// Utilities for getting data
+// ==========================
 const nameToURL = (property) => {
   // turn a CSS property name into an raw MDN page summary URL
   if (properties[property] === undefined) {
@@ -63,23 +66,45 @@ const readDataFromURL = url => new Promise((resolve, reject) => {
   });
 });
 
+// =============
+// Length checks
+// =============
 const isLengthOK = text => lengthLimit >= text.length;
+
+const checkLength = (propertyName, summaryText) => {
+  if (isLengthOK(summaryText)) {
+    return { status: true };
+  }
+  return {
+    status: false,
+    errors: [
+      `    ❌ ${propertyName} summary is too long. Expected ≤${lengthLimit} displayed characters, got ${summaryText.length}`,
+      `       > ${summaryText.slice(0, 180)}\x1b[41m${summaryText.slice(180)}\x1b[0m`,
+    ],
+  };
+};
 
 // a very simplistic attempt to match the first sentence of the summary
 const firstSentence = text => text.replace(/\.(?!\d)/g, '.\x1f').split('\x1f')[0];
 const isFirstSentenceLengthOK = text => firstSentenceLengthLimit >= firstSentence(text).length;
 
-const forbiddenTags = tagSet => Array.from(tagSet).filter(v => !Object.keys(allowed).includes(v));
-const areTagsOK = tagSet => forbiddenTags(tagSet).length === 0;
-
-const getTagSet = (dom) => {
-  const tagSet = new Set();
-
-  dom.window.document.querySelectorAll('BODY *').forEach(elem => tagSet.add(elem.tagName));
-
-  return tagSet;
+const checkFirstSentenceLength = (propertyName, summaryText) => {
+  const sentence = firstSentence(summaryText);
+  if (isFirstSentenceLengthOK(summaryText)) {
+    return { status: true };
+  }
+  return {
+    status: false,
+    errors: [
+      `    ⁉️  ${propertyName} summary's first sentence may be too long. Expected ≤${firstSentenceLengthLimit} displayed characters, got ${sentence.length}`,
+      `       > ${sentence.slice(0, firstSentenceLengthLimit)}\x1b[41m${sentence.slice(firstSentenceLengthLimit)}\x1b[0m`,
+    ],
+  };
 };
 
+// ========================
+// Tag and attribute checks
+// ========================
 const forbiddenAttrs = (dom) => {
   const badAttrs = [];
 
@@ -97,31 +122,26 @@ const forbiddenAttrs = (dom) => {
 };
 const areAttrsOK = dom => forbiddenAttrs(dom).length === 0;
 
-const checkFirstSentenceLength = (propertyName, summaryText) => {
-  const sentence = firstSentence(summaryText);
-  if (isFirstSentenceLengthOK(summaryText)) {
+const checkAttrs = (propertyName, summaryText, summaryDom) => {
+  if (areAttrsOK(summaryDom)) {
     return { status: true };
   }
   return {
     status: false,
     errors: [
-      `    ⁉️  ${propertyName} summary's first sentence may be too long. Expected ≤${firstSentenceLengthLimit} displayed characters, got ${sentence.length}`,
-      `       > ${sentence.slice(0, firstSentenceLengthLimit)}\x1b[41m${sentence.slice(firstSentenceLengthLimit)}\x1b[0m`,
+      `    ❌ ${propertyName} summary contains forbidden attributes: ${forbiddenAttrs(summaryDom).join(', ')}\x1b[0m`,
     ],
   };
 };
 
-const checkLength = (propertyName, summaryText) => {
-  if (isLengthOK(summaryText)) {
-    return { status: true };
-  }
-  return {
-    status: false,
-    errors: [
-      `    ❌ ${propertyName} summary is too long. Expected ≤${lengthLimit} displayed characters, got ${summaryText.length}`,
-      `       > ${summaryText.slice(0, 180)}\x1b[41m${summaryText.slice(180)}\x1b[0m`,
-    ],
-  };
+const forbiddenTags = tagSet => Array.from(tagSet).filter(v => !Object.keys(allowed).includes(v));
+const areTagsOK = tagSet => forbiddenTags(tagSet).length === 0;
+const getTagSet = (dom) => {
+  const tagSet = new Set();
+
+  dom.window.document.querySelectorAll('BODY *').forEach(elem => tagSet.add(elem.tagName));
+
+  return tagSet;
 };
 
 const checkTags = (propertyName, summaryText, summaryDom) => {
@@ -137,18 +157,9 @@ const checkTags = (propertyName, summaryText, summaryDom) => {
   };
 };
 
-const checkAttrs = (propertyName, summaryText, summaryDom) => {
-  if (areAttrsOK(summaryDom)) {
-    return { status: true };
-  }
-  return {
-    status: false,
-    errors: [
-      `    ❌ ${propertyName} summary contains forbidden attributes: ${forbiddenAttrs(summaryDom).join(', ')}\x1b[0m`,
-    ],
-  };
-};
-
+// =============
+// Checks runner
+// =============
 const checkSummary = (summaryData, propertyName, url) => {
   const checks = [
     checkLength,
@@ -191,6 +202,9 @@ const test = () => {
   checkSummary(exampleNotOK, 'color', 'https://developer.mozilla.example/thisIsNotARealURL');
 };
 
+// ============
+// Main and CLI
+// ============
 const main = (args) => {
   const sequence = [];
 
