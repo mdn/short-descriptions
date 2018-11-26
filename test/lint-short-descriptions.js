@@ -116,11 +116,11 @@ const readDataFromStdin = async () => new Promise((resolve) => {
   });
   const lines = [];
 
-  rl.on('line', (line) => lines.push(line));
+  rl.on('line', line => lines.push(line));
   rl.on('close', () => resolve(lines));
 });
 
-const readDataFromURL = async (url) => new Promise((resolve, reject) => request.get(url, (error, response, body) => {
+const readDataFromURL = async url => new Promise((resolve, reject) => request.get(url, (error, response, body) => {
   if (error) {
     reject(error);
   }
