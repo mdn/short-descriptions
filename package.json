@@ -16,7 +16,8 @@
     "request": "^2.88.0"
   },
   "scripts": {
-    "lint-short-descriptions": "node test/lint-short-descriptions.js"
+    "lint-short-descriptions": "node test/lint-short-descriptions.js",
+    "lint-js": "npx eslint test/*.js"
   },
   "repository": {
     "type": "git",
