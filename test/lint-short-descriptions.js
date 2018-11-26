@@ -219,13 +219,11 @@ const forbiddenAttrs = (dom) => {
   for (const elem of dom.window.document.querySelectorAll('BODY *')) {
     const allowedAttrs = allowed[elem.tagName];
 
-    if (allowedAttrs === undefined) {
-      continue;
+    if (allowedAttrs) {
+      const attrNames = Array.from(elem.attributes).map(value => value.name);
+      attrNames.filter(attr => !allowedAttrs.includes(attr))
+        .forEach(attr => badAttrs.push(`${elem.tagName}.${attr}`));
     }
-
-    const attrNames = Array.from(elem.attributes).map(value => value.name);
-    attrNames.filter(attr => !allowedAttrs.includes(attr))
-      .forEach(attr => badAttrs.push(`${elem.tagName}.${attr}`));
   }
 
   return badAttrs;
