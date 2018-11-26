@@ -138,7 +138,6 @@ const checkLength = (propertyName, summaryText, summaryDom) => {
         `       > ${summaryText.slice(0,180)}\x1b[41m${summaryText.slice(180)}\x1b[0m`
       ]
     };
-  
 };
 
 const checkFirstSentenceLength = (propertyName, summaryText, summaryDom) => {
@@ -153,7 +152,6 @@ const checkFirstSentenceLength = (propertyName, summaryText, summaryDom) => {
         `       > ${sentence.slice(0, firstSentenceLengthLimit)}\x1b[41m${sentence.slice(firstSentenceLengthLimit)}\x1b[0m`
       ]
     };
-  
 };
 
 const checkTags = (propertyName, summaryText, summaryDom) => {
@@ -167,7 +165,6 @@ const checkTags = (propertyName, summaryText, summaryDom) => {
         `    ❌ ${propertyName} summary contains forbidden tags: ${forbiddenTags(tagSet).join(', ')}\x1b[0m`
       ]
     };
-  
 };
 
 const checkAttrs = (propertyName, summaryText, summaryDom) => {
@@ -180,7 +177,6 @@ const checkAttrs = (propertyName, summaryText, summaryDom) => {
         `    ❌ ${propertyName} summary contains forbidden attributes: ${forbiddenAttrs(summaryDom).join(', ')}\x1b[0m`
       ]
     };
-  
 };
 
 const isLengthOK = text => lengthLimit >= text.length;
