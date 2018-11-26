@@ -8,6 +8,8 @@
 // Demo mode
 //    $ npm run lint-short-descriptions -- --self-test
 
+/* eslint-disable no-console */
+
 const readline = require('readline');
 
 const request = require('request');
