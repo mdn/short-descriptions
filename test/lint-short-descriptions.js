@@ -112,7 +112,7 @@ const readDataFromStdin = async () => new Promise((resolve) => {
   const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
-    terminal: false
+    terminal: false,
   });
   const lines = [];
 
@@ -135,8 +135,8 @@ const checkLength = (propertyName, summaryText) => {
       status: false,
       errors: [
         `    ❌ ${propertyName} summary is too long. Expected ≤${lengthLimit} displayed characters, got ${summaryText.length}`,
-        `       > ${summaryText.slice(0,180)}\x1b[41m${summaryText.slice(180)}\x1b[0m`
-      ]
+        `       > ${summaryText.slice(0,180)}\x1b[41m${summaryText.slice(180)}\x1b[0m`,
+      ],
     };
 };
 
@@ -149,8 +149,8 @@ const checkFirstSentenceLength = (propertyName, summaryText) => {
       status: false,
       errors: [
         `    ⁉️  ${propertyName} summary's first sentence may be too long. Expected ≤${firstSentenceLengthLimit} displayed characters, got ${sentence.length}`,
-        `       > ${sentence.slice(0, firstSentenceLengthLimit)}\x1b[41m${sentence.slice(firstSentenceLengthLimit)}\x1b[0m`
-      ]
+        `       > ${sentence.slice(0, firstSentenceLengthLimit)}\x1b[41m${sentence.slice(firstSentenceLengthLimit)}\x1b[0m`,
+      ],
     };
 };
 
@@ -162,8 +162,8 @@ const checkTags = (propertyName, summaryText, summaryDom) => {
     return {
       status: false,
       errors: [
-        `    ❌ ${propertyName} summary contains forbidden tags: ${forbiddenTags(tagSet).join(', ')}\x1b[0m`
-      ]
+        `    ❌ ${propertyName} summary contains forbidden tags: ${forbiddenTags(tagSet).join(', ')}\x1b[0m`,
+      ],
     };
 };
 
@@ -174,8 +174,8 @@ const checkAttrs = (propertyName, summaryText, summaryDom) => {
     return {
       status: false,
       errors: [
-        `    ❌ ${propertyName} summary contains forbidden attributes: ${forbiddenAttrs(summaryDom).join(', ')}\x1b[0m`
-      ]
+        `    ❌ ${propertyName} summary contains forbidden attributes: ${forbiddenAttrs(summaryDom).join(', ')}\x1b[0m`,
+      ],
     };
 };
 
