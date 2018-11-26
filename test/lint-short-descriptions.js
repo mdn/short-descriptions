@@ -75,13 +75,14 @@ const checkSummary = (summaryData, propertyName, url) => {
   const summaryDom = new jsdom.JSDOM(summaryData);
   const summaryText = summaryDom.window.document.querySelector('body').textContent;
 
-  for (const check of checks) {
+  checks.forEach((check) => {
     const { status, errors } = check(propertyName, summaryText, summaryDom);
+
     if (!status) {
       ok = false;
       messages.push(...errors);
     }
-  }
+  });
 
   if (ok) {
     console.log(`✅ \x1b[1m${propertyName}\x1b[0m (${url}) is OK`);
@@ -205,9 +206,9 @@ const forbiddenTags = tagSet => Array.from(tagSet).filter(value => !Object.keys(
 
 const getTagSet = (dom) => {
   const tagSet = new Set();
-  for (const elem of dom.window.document.querySelectorAll('BODY *')) {
-    tagSet.add(elem.tagName);
-  }
+
+  dom.window.document.querySelectorAll('BODY *').forEach(elem => tagSet.add(elem.tagName));
+
   return tagSet;
 };
 
@@ -216,7 +217,7 @@ const areAttrsOK = dom => forbiddenAttrs(dom).length === 0;
 const forbiddenAttrs = (dom) => {
   const badAttrs = [];
 
-  for (const elem of dom.window.document.querySelectorAll('BODY *')) {
+  dom.window.document.querySelectorAll('BODY *').forEach((elem) => {
     const allowedAttrs = allowed[elem.tagName];
 
     if (allowedAttrs) {
@@ -224,7 +225,7 @@ const forbiddenAttrs = (dom) => {
       attrNames.filter(attr => !allowedAttrs.includes(attr))
         .forEach(attr => badAttrs.push(`${elem.tagName}.${attr}`));
     }
-  }
+  });
 
   return badAttrs;
 };
