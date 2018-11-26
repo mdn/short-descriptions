@@ -78,8 +78,8 @@ const checkLength = (propertyName, summaryText) => {
   return {
     status: false,
     errors: [
-      `    ❌ ${propertyName} summary is too long. Expected ≤${lengthLimit} displayed characters, got ${summaryText.length}`,
-      `       > ${summaryText.slice(0, 180)}\x1b[41m${summaryText.slice(180)}\x1b[0m`,
+      `${propertyName} summary is too long. Expected ≤${lengthLimit} displayed characters, got ${summaryText.length}`,
+      `  > ${summaryText.slice(0, 180)}\x1b[41m${summaryText.slice(180)}\x1b[0m`,
     ],
   };
 };
@@ -96,8 +96,8 @@ const checkFirstSentenceLength = (propertyName, summaryText) => {
   return {
     status: false,
     errors: [
-      `    ⁉️  ${propertyName} summary's first sentence may be too long. Expected ≤${firstSentenceLengthLimit} displayed characters, got ${sentence.length}`,
-      `       > ${sentence.slice(0, firstSentenceLengthLimit)}\x1b[41m${sentence.slice(firstSentenceLengthLimit)}\x1b[0m`,
+      `${propertyName} summary's first sentence may be too long. Expected ≤${firstSentenceLengthLimit} displayed characters, got ${sentence.length}`,
+      `  > ${sentence.slice(0, firstSentenceLengthLimit)}\x1b[41m${sentence.slice(firstSentenceLengthLimit)}\x1b[0m`,
     ],
   };
 };
@@ -129,7 +129,7 @@ const checkAttrs = (propertyName, summaryText, summaryDom) => {
   return {
     status: false,
     errors: [
-      `    ❌ ${propertyName} summary contains forbidden attributes: ${forbiddenAttrs(summaryDom).join(', ')}\x1b[0m`,
+      `${propertyName} summary contains forbidden attributes: ${forbiddenAttrs(summaryDom).join(', ')}\x1b[0m`,
     ],
   };
 };
@@ -152,7 +152,7 @@ const checkTags = (propertyName, summaryText, summaryDom) => {
   return {
     status: false,
     errors: [
-      `    ❌ ${propertyName} summary contains forbidden tags: ${forbiddenTags(tagSet).join(', ')}\x1b[0m`,
+      `${propertyName} summary contains forbidden tags: ${forbiddenTags(tagSet).join(', ')}\x1b[0m`,
     ],
   };
 };
@@ -187,19 +187,16 @@ const checkSummary = (summaryData, propertyName, url) => {
     console.log(`✅ \x1b[1m${propertyName}\x1b[0m (${url}) is OK`);
   } else {
     console.error(`❌ \x1b[1m${propertyName}\x1b[0m (${url}) has problems`);
-    messages.forEach(value => console.log(value));
+    messages.forEach(value => console.log(`    ❌ ${value}`));
   }
 };
 
 const test = () => {
   const exampleOK = 'The <strong><code>color</code></strong> CSS property sets the foreground <a href="https://developer.mozilla.org/docs/Web/CSS/color_value">color value</a> of an element\'s text and <a href="https://developer.mozilla.org/docs/Web/CSS/text-decoration">text decorations</a>. It also sets the <a href="https://developer.mozilla.org/docs/Web/CSS/currentcolor"><code>currentcolor</code></a> value, an indirect value on <em>other</em> properties.';
+  checkSummary(exampleOK, 'good-color', 'https://developer.mozilla.example/thisIsNotARealURL');
+
   const exampleNotOK = 'The <strong><code>color</code></strong> CSS property sets the foreground <a href="/en-US/docs/Web/CSS/color_value">color value</a> of an element\'s text content and <a href="/en-US/docs/Web/CSS/text-decoration" name=\'notallowed\'>text decorations</a> and also this sentence is much too long to be the first sentence of a short description. And the whole thing should be less than 180 characters. <span>And this enclosing span tag is not allowed</span>. And neither is hidden br tag <br/>.';
-
-  console.log('-- Testing OK text --');
-  checkSummary(exampleOK, 'color', 'https://developer.mozilla.example/thisIsNotARealURL');
-
-  console.log('-- Testing not OK text --');
-  checkSummary(exampleNotOK, 'color', 'https://developer.mozilla.example/thisIsNotARealURL');
+  checkSummary(exampleNotOK, 'bad-color', 'https://developer.mozilla.example/thisIsNotARealURL');
 };
 
 // ============
