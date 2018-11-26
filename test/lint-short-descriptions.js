@@ -23,9 +23,7 @@ const allowed = {
   STRONG: [],
 };
 
-const cli = async () => {
-  process.argv.includes('--self-test') ? test() : main(process.argv.slice(2));
-};
+const cli = async () => (process.argv.includes('--self-test') ? test() : main(process.argv.slice(2)));
 
 const main = async (args) => {
   try {
@@ -126,7 +124,9 @@ const readDataFromURL = async (url) =>
   // fetch URL (returns a Promise)
    new Promise((resolve, reject) => {
     request.get(url, (error, response, body) => {
-      error ? reject(error) : {};
+      if (error) {
+        reject(error);
+      }
       resolve(body);
     });
   })
