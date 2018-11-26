@@ -8,6 +8,9 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
     "jsdom": "^12.2.0",
     "mdn-data": "^2.0.0",
     "request": "^2.88.0"
