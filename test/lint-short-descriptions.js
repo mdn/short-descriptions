@@ -129,7 +129,7 @@ const readDataFromURL = async (url) => new Promise((resolve, reject) => request.
 
 const checkLength = (propertyName, summaryText) => {
   if (isLengthOK(summaryText)) {
-    return {status: true};
+    return { status: true };
   } 
   return {
     status: false,
@@ -143,7 +143,7 @@ const checkLength = (propertyName, summaryText) => {
 const checkFirstSentenceLength = (propertyName, summaryText) => {
   const sentence = firstSentence(summaryText);
   if (isFirstSentenceLengthOK(summaryText)) {
-    return {status: true};
+    return { status: true };
   } 
   return {
     status: false,
@@ -157,7 +157,7 @@ const checkFirstSentenceLength = (propertyName, summaryText) => {
 const checkTags = (propertyName, summaryText, summaryDom) => {
   const tagSet = getTagSet(summaryDom);
   if (areTagsOK(tagSet)) {
-    return {status: true};
+    return { status: true };
   } 
   return {
     status: false,
@@ -169,7 +169,7 @@ const checkTags = (propertyName, summaryText, summaryDom) => {
 
 const checkAttrs = (propertyName, summaryText, summaryDom) => {
   if (areAttrsOK(summaryDom)) {
-    return {status: true};
+    return { status: true };
   } 
   return {
     status: false,
