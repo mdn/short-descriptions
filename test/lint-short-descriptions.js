@@ -108,30 +108,24 @@ const nameToURL = (property) => {
   return `${properties[property].mdn_url}?raw&summary&${cacheBuster}`;
 };
 
-const readDataFromStdin = async () => 
-  // read text from standard input (returns a Promise)
-   new Promise((resolve, reject) => {
-    const rl = readline.createInterface({
-      input: process.stdin,
-      output: process.stdout,
-      terminal: false
-    });
-    const lines = [];
-
-    rl.on('line', (line) => lines.push(line));
-    rl.on('close', () => resolve(lines));
+const readDataFromStdin = async () => new Promise((resolve, reject) => {
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+    terminal: false
   });
+  const lines = [];
 
-const readDataFromURL = async (url) => 
-  // fetch URL (returns a Promise)
-   new Promise((resolve, reject) => {
-    request.get(url, (error, response, body) => {
-      if (error) {
-        reject(error);
-      }
-      resolve(body);
-    });
-  });
+  rl.on('line', (line) => lines.push(line));
+  rl.on('close', () => resolve(lines));
+});
+
+const readDataFromURL = async (url) => new Promise((resolve, reject) => request.get(url, (error, response, body) => {
+  if (error) {
+    reject(error);
+  }
+  resolve(body);
+}));
 
 const checkLength = (propertyName, summaryText, summaryDom) => {
   if (isLengthOK(summaryText)) {
@@ -193,9 +187,8 @@ const isLengthOK = text => lengthLimit >= text.length;
 
 const isFirstSentenceLengthOK = text => firstSentenceLengthLimit >= firstSentence(text).length;
 
-const firstSentence = (text) => 
-  // a very simplistic attempt to match the first sentence of the summary
-   text.replace(/\.(?!\d)/g, '.\x1f').split('\x1f')[0];
+// a very simplistic attempt to match the first sentence of the summary
+const firstSentence = text => text.replace(/\.(?!\d)/g, '.\x1f').split('\x1f')[0];
 
 const areTagsOK = tagSet => forbiddenTags(tagSet).length === 0;
 
