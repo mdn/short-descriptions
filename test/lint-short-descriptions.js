@@ -135,7 +135,7 @@ const checkLength = (propertyName, summaryText) => {
     status: false,
     errors: [
       `    ❌ ${propertyName} summary is too long. Expected ≤${lengthLimit} displayed characters, got ${summaryText.length}`,
-      `       > ${summaryText.slice(0,180)}\x1b[41m${summaryText.slice(180)}\x1b[0m`,
+      `       > ${summaryText.slice(0, 180)}\x1b[41m${summaryText.slice(180)}\x1b[0m`,
     ],
   };
 };
