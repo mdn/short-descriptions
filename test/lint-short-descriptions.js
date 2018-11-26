@@ -108,7 +108,7 @@ const nameToURL = (property) => {
   return `${properties[property].mdn_url}?raw&summary&${cacheBuster}`;
 };
 
-const readDataFromStdin = async () => new Promise((resolve, reject) => {
+const readDataFromStdin = async () => new Promise((resolve) => {
   const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
@@ -127,7 +127,7 @@ const readDataFromURL = async (url) => new Promise((resolve, reject) => request.
   resolve(body);
 }));
 
-const checkLength = (propertyName, summaryText, summaryDom) => {
+const checkLength = (propertyName, summaryText) => {
   if (isLengthOK(summaryText)) {
     return {status: true};
   } 
@@ -140,7 +140,7 @@ const checkLength = (propertyName, summaryText, summaryDom) => {
     };
 };
 
-const checkFirstSentenceLength = (propertyName, summaryText, summaryDom) => {
+const checkFirstSentenceLength = (propertyName, summaryText) => {
   const sentence = firstSentence(summaryText);
   if (isFirstSentenceLengthOK(summaryText)) {
     return {status: true};
