@@ -192,26 +192,32 @@ const test = () => {
 };
 
 const main = async (args) => {
-  try {
-    while (args.length) {
-      let prop = args.shift();
-      let url = '';
-      let summary = '';
+  const sequence = [];
 
-      if (prop === '-') {
-        prop = 'standard input';
-        url = 'no URL';
-        summary = await readDataFromStdin();
-      } else {
-        url = nameToURL(prop);
-        summary = await readDataFromURL(url);
-      }
+  args.forEach((arg) => {
+    let url;
+    let data;
 
-      checkSummary(summary, prop, url);
+    if (arg === '-') {
+      url = 'no URL';
+      data = readDataFromStdin();
+    } else {
+      url = nameToURL(arg);
+      data = readDataFromURL(url);
     }
-  } catch (e) {
-    console.trace(e);
-  }
+
+    sequence.push({
+      prop: arg,
+      url,
+      data,
+    });
+  });
+
+  sequence.forEach(async (item) => {
+    const summary = await item.data;
+    console.log(item.prop, item.url, typeof summary);
+    checkSummary(summary, item.prop, item.url);
+  });
 };
 
 const cli = async () => (process.argv.includes('--self-test') ? test() : main(process.argv.slice(2)));
