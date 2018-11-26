@@ -120,8 +120,7 @@ const readDataFromStdin = async () =>
 
     rl.on('line', (line) => lines.push(line));
     rl.on('close', () => resolve(lines));
-  })
-;
+  });
 
 const readDataFromURL = async (url) => 
   // fetch URL (returns a Promise)
@@ -132,8 +131,7 @@ const readDataFromURL = async (url) =>
       }
       resolve(body);
     });
-  })
-;
+  });
 
 const checkLength = (propertyName, summaryText, summaryDom) => {
   if (isLengthOK(summaryText)) {
@@ -197,8 +195,7 @@ const isFirstSentenceLengthOK = text => firstSentenceLengthLimit >= firstSentenc
 
 const firstSentence = (text) => 
   // a very simplistic attempt to match the first sentence of the summary
-   text.replace(/\.(?!\d)/g, '.\x1f').split('\x1f')[0]
-;
+   text.replace(/\.(?!\d)/g, '.\x1f').split('\x1f')[0];
 
 const areTagsOK = tagSet => forbiddenTags(tagSet).length === 0;
 
