@@ -202,7 +202,7 @@ const firstSentence = (text) =>
 
 const areTagsOK = tagSet => forbiddenTags(tagSet).length === 0;
 
-const forbiddenTags = tagSet => Array.from(tagSet).filter(value => !Object.keys(allowed).includes(value));
+const forbiddenTags = tagSet => Array.from(tagSet).filter(v => !Object.keys(allowed).includes(v));
 
 const getTagSet = (dom) => {
   const tagSet = new Set();
