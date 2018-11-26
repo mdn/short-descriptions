@@ -12,7 +12,7 @@ const readline = require('readline');
 
 const request = require('request');
 const jsdom = require('jsdom');
-const properties = require('mdn-data').css.properties;
+const { properties } = require('mdn-data').css;
 
 const lengthLimit = 180;
 const firstSentenceLengthLimit = 150;
