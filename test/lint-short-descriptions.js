@@ -41,7 +41,7 @@ const nameToURL = (property) => {
   return `${properties[property].mdn_url}?raw&summary&${cacheBuster}`;
 };
 
-const readDataFromStdin = async () => new Promise((resolve) => {
+const readDataFromStdin = () => new Promise((resolve) => {
   const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
@@ -191,7 +191,7 @@ const test = () => {
   checkSummary(exampleNotOK, 'color', 'https://developer.mozilla.example/thisIsNotARealURL');
 };
 
-const main = async (args) => {
+const main = (args) => {
   const sequence = [];
 
   args.forEach((arg) => {
@@ -215,11 +215,10 @@ const main = async (args) => {
 
   sequence.forEach(async (item) => {
     const summary = await item.data;
-    console.log(item.prop, item.url, typeof summary);
     checkSummary(summary, item.prop, item.url);
   });
 };
 
-const cli = async () => (process.argv.includes('--self-test') ? test() : main(process.argv.slice(2)));
+const cli = () => (process.argv.includes('--self-test') ? test() : main(process.argv.slice(2)));
 
 cli();
