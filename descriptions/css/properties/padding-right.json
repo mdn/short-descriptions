@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "padding-right": {
+        "__short_description": "The<strong> <code>padding-right</code> </strong><a href='https://developer.mozilla.org/en/CSS'>CSS</a> property sets the width of the <a href='https://developer.mozilla.org/en/CSS/box_model#padding-area'>padding area</a> on the right side of an element."
+      }
+    }
+  }
+}

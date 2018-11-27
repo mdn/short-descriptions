@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "font-family": {
+        "__short_description": "The <strong><code>font-family</code></strong> CSS property specifies a prioritized list of one or more font family names and/or generic family names for the selected element."
+      }
+    }
+  }
+}

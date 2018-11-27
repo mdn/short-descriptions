@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "justify-self": {
+        "__short_description": "The <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> <strong><code>justify-self</code></strong> property set the way a box is justified inside its alignment container along the appropriate axis."
+      }
+    }
+  }
+}

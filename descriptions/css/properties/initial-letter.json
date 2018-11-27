@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "initial-letter": {
+        "__short_description": "The <code>initial-letter</code> CSS property sets styling for dropped, raised, and sunken initial letters."
+      }
+    }
+  }
+}

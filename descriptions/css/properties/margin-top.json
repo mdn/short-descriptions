@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "margin-top": {
+        "__short_description": "The <strong><code>margin-top</code></strong> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property sets the <a href='https://developer.mozilla.org/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model'>margin area</a> on the top of an element. A positive value places it farther from its neighbors, while a negative value places it closer."
+      }
+    }
+  }
+}

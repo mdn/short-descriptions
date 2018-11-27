@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "opacity": {
+        "__short_description": "The <strong><code>opacity</code></strong> CSS property sets the transparency of an element or the degree to which content behind an element is visible."
+      }
+    }
+  }
+}
