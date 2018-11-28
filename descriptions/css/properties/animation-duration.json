@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "animation-duration": {
+        "__short_description": "The <strong><code>animation-duration</code></strong> <a href='https://developer.mozilla.org/docs/CSS'>CSS</a> property sets the length of time that an animation takes to complete one cycle."
+      }
+    }
+  }
+}

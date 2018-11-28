@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "align-content": {
+        "__short_description": "The <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> <strong><code>align-content</code></strong> property sets how the browser distributes space between and around content items along the cross-axis of a <a href='https://developer.mozilla.org/docs/Web/CSS/CSS_Flexible_Box_Layout'>flexbox</a> container, and the main-axis of a grid container."
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "animation-play-state": {
+        "__short_description": "The <strong><code>animation-play-state</code></strong> <a href='https://developer.mozilla.org/docs/CSS'>CSS</a> property sets whether an animation is running or paused."
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "background-blend-mode": {
+        "__short_description": "The <strong><code>background-blend-mode</code></strong> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property sets how an element's background images should blend with each other and with the element's background color."
+      }
+    }
+  }
+}

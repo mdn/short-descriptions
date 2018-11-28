@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "animation-delay": {
+        "__short_description": "The <strong><code>animation-delay</code></strong> <a href='https://developer.mozilla.org/docs/CSS'>CSS</a> property sets when an animation starts. The animation can start later, immediately from its beginning, or immediately and partway through the animation."
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "animation-iteration-count": {
+        "__short_description": "The <strong><code>animation-iteration-count</code></strong> <a href='https://developer.mozilla.org/en/CSS'>CSS</a> property sets the number of times an animation cycle should be played before stopping."
+      }
+    }
+  }
+}

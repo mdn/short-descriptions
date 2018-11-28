@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "background": {
+        "__short_description": "The <strong><code>background</code></strong> shorthand <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property sets all background style properties at once, such as color, image, origin and size, repeat method, and others."
+      }
+    }
+  }
+}

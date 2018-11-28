@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "background-size": {
+        "__short_description": "The <strong><code>background-size</code></strong> <a href='https://developer.mozilla.org/docs/CSS'>CSS</a> property sets the size of the element's background image. The image can be left to its natural size, stretched, or constrained to fit the available space."
+      }
+    }
+  }
+}

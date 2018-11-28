@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "border-image-outset": {
+        "__short_description": "The <strong><code>border-image-outset</code></strong> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property sets the distance by which an element's <a href='https://developer.mozilla.org/docs/Web/CSS/border-image'>border image</a> is set out from its border box."
+      }
+    }
+  }
+}

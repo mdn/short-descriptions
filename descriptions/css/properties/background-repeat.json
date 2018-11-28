@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "background-repeat": {
+        "__short_description": "The <strong><code>background-repeat</code></strong> <a href='https://developer.mozilla.org/docs/CSS'>CSS</a> property sets how background images are repeated. A background image can be repeated along the horizontal and vertical axes, or not repeated at all."
+      }
+    }
+  }
+}
