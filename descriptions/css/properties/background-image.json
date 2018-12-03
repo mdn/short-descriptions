@@ -2,7 +2,7 @@
   "css": {
     "properties": {
       "background-image": {
-        "__short_description": "The <strong><code>background-image</code></strong> <a href='https://developer.mozilla.org/docs/CSS'>CSS</a> property sets one or more&nbsp;background images on an element."
+        "__short_description": "The <strong><code>background-image</code></strong> <a href='https://developer.mozilla.org/docs/CSS'>CSS</a> property sets one or more background images on an element."
       }
     }
   }
