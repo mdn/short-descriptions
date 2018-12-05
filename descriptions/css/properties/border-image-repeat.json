@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "border-image-repeat": {
+        "__short_description": "The <strong><code>border-image-repeat</code></strong> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property defines how the <a href='https://developer.mozilla.org/docs/Web/CSS/border-image-slice#edge-regions'>edge regions</a> of a source image are adjusted to fit the dimensions of an element's <a href='https://developer.mozilla.org/docs/Web/CSS/border-image'>border image</a>."
+      }
+    }
+  }
+}

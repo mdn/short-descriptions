@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "animation-direction": {
+        "__short_description": "The <strong><code>animation-direction</code></strong> <a href='https://developer.mozilla.org/docs/CSS'>CSS</a> property sets whether an animation should play forwards, backwards, or alternating back and forth."
+      }
+    }
+  }
+}

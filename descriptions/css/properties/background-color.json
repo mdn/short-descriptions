@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "background-color": {
+        "__short_description": "The <strong><code>background-color</code></strong> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property sets the background color of an element."
+      }
+    }
+  }
+}

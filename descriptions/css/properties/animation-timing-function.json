@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "animation-timing-function": {
+        "__short_description": "The <code><strong>animation-timing-function</strong></code> <a href='https://developer.mozilla.org/docs/CSS'>CSS</a> property sets how an animation progresses through the duration of each cycle."
+      }
+    }
+  }
+}

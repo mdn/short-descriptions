@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "border-bottom-width": {
+        "__short_description": "The <strong><code>border-bottom-width</code></strong> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property sets the width of the bottom border of a box."
+      }
+    }
+  }
+}
