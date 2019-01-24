@@ -36,7 +36,11 @@ const delocalize = (aElem) => {
   const a = aElem;
 
   if (a.hostname === 'developer.mozilla.org') {
-    a.href = a.href.replace(/[/]\w\w-\w\w(?=[/])/g, '');
+    const pathComponents = a.pathname.split('/');
+    if (pathComponents[1] !== 'docs') {
+      pathComponents.splice(1, 1);
+      a.pathname = pathComponents.join('/');
+    }
   }
 };
 
