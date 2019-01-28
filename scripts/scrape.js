@@ -105,15 +105,19 @@ const writeToFile = (propertyName, html) => {
 const main = (args) => {
   const props = args.length === 0 ? allProperties : args;
 
-  props.forEach((propName, index) => {
-    const url = properties[propName].mdn_url;
+  const propPipelines = props.map((propName, index) => {
+    const property = properties[propName];
 
-    if (url === undefined) {
-      console.warn(`WARNING: ${propName} has no \`mdn_url\` value. Skipping.`);
-      return;
+    if (property === undefined) {
+      return { success: false, name: propName, error: 'Property not found' };
     }
 
-    delay(index * 500)
+    const url = property.mdn_url;
+    if (url === undefined) {
+      return { success: false, name: propName, error: 'No `mdn_url` found' };
+    }
+
+    return delay(index * 500)
       .then(() => jsdom.JSDOM.fromURL(summarize(url)))
       .then(domTransforms.cleanLinks)
       .then(domTransforms.stripUnwantedAttrs)
@@ -121,8 +125,26 @@ const main = (args) => {
       .then(htmlTransforms.replaceDoubleQuotes)
       .then(htmlTransforms.removeNbsps)
       .then(html => writeToFile(propName, html))
-      .catch(console.trace);
+      .then(() => ({ success: true, name: propName }))
+      .catch((err) => {
+        console.trace(err);
+        return ({ success: false, name: propName, error: err });
+      });
   });
+
+  const results = await Promise.all(propPipelines);
+
+  const successes = [];
+  const failures = [];
+  results.forEach(result => (result.success ? successes.push(result) : failures.push(result)));
+
+  console.log(`\nAttempted to scrape ${results.length} properties.`);
+  console.log(`Successfully scraped ${successes.length} properties.`);
+
+  if (failures.length) {
+    console.log(`Failed to scrape ${failures.length} properties:`);
+    failures.forEach(result => console.log(`  ${result.name}: ${result.error}`));
+  }
 };
 
 const cli = () => {
