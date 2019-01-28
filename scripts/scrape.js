@@ -53,8 +53,8 @@ const abs = (aElem) => {
   a.href = a.href;
 };
 
-const domTransforms = {
-  cleanLinks: (dom) => {
+const domTransforms = [
+  function cleanLinks(dom) {
     dom.window.document.querySelectorAll('BODY A').forEach((elem) => {
       abs(elem);
       delocalize(elem);
@@ -63,7 +63,7 @@ const domTransforms = {
     return dom;
   },
 
-  stripUnwantedAttrs: (dom) => {
+  function stripUnwantedAttrs(dom) {
     dom.window.document.querySelectorAll('BODY *').forEach((elem) => {
       const allowedAttrs = allowed[elem.tagName];
 
@@ -78,13 +78,13 @@ const domTransforms = {
     return dom;
   },
 
-  toHTML: dom => dom.window.document.querySelector('BODY').innerHTML,
-};
+  function toHTML(dom) { return dom.window.document.querySelector('BODY').innerHTML; },
+];
 
-const htmlTransforms = {
-  replaceDoubleQuotes: html => html.replace(/"/g, "'"),
-  removeNbsps: html => html.replace(/&nbsp;/g, ' '),
-};
+const htmlTransforms = [
+  function replaceDoubleQuotes(html) { return html.replace(/"/g, "'"); },
+  function removeNbsps(html) { return html.replace(/&nbsp;/g, ' '); },
+];
 
 const writeToFile = (propertyName, html) => {
   const data = {
@@ -102,10 +102,10 @@ const writeToFile = (propertyName, html) => {
   fs.writeFileSync(dest, `${JSON.stringify(data, null, 2)}\n`);
 };
 
-const main = (args) => {
+const main = async (args) => {
   const props = args.length === 0 ? allProperties : args;
 
-  const propPipelines = props.map((propName, index) => {
+  const propPipelines = props.map(async (propName, index) => {
     const property = properties[propName];
 
     if (property === undefined) {
@@ -117,19 +117,19 @@ const main = (args) => {
       return { success: false, name: propName, error: 'No `mdn_url` found' };
     }
 
-    return delay(index * 500)
-      .then(() => jsdom.JSDOM.fromURL(summarize(url)))
-      .then(domTransforms.cleanLinks)
-      .then(domTransforms.stripUnwantedAttrs)
-      .then(domTransforms.toHTML)
-      .then(htmlTransforms.replaceDoubleQuotes)
-      .then(htmlTransforms.removeNbsps)
-      .then(html => writeToFile(propName, html))
-      .then(() => ({ success: true, name: propName }))
-      .catch((err) => {
-        console.trace(err);
-        return ({ success: false, name: propName, error: err });
-      });
+    try {
+      await delay(index * 500);
+      const dom = await jsdom.JSDOM.fromURL(summarize(url));
+
+      const html = domTransforms.reduce((domObj, fn) => fn(domObj), dom);
+      const final = htmlTransforms.reduce((htmlObj, fn) => fn(htmlObj), html);
+
+      writeToFile(propName, final);
+      return { success: true, name: propName };
+    } catch (err) {
+      console.trace(err);
+      return ({ success: false, name: propName, error: err });
+    }
   });
 
   const results = await Promise.all(propPipelines);
