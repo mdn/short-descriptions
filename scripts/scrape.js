@@ -98,7 +98,10 @@ const writeToFile = (propertyName, html) => {
   };
 
   const dest = path.join(__dirname, '../descriptions/css/properties/', `${propertyName}.json`);
-  fs.mkdirSync(path.dirname(dest), { recursive: true });
+  const destDir = path.dirname(dest);
+  if (!fs.existsSync(destDir)) {
+    fs.mkdirSync(path.dirname(destDir), { recursive: true });
+  }
   fs.writeFileSync(dest, `${JSON.stringify(data, null, 2)}\n`);
 };
 
