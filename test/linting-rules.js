@@ -149,7 +149,7 @@ const contentRules = [
   },
 ];
 
-const sourceRules = [
+const jsonFormatRules = [
   {
     description: 'JSON must be parseable',
     bad: '{',
@@ -222,7 +222,7 @@ const testRules = () => {
     assert.ok(bad.passes === false, `Expected \`false\` for result of "${rule.description}" bad example.`);
     assert.ok(bad.errors.length > 0, `Expected errors for "${rule.description}" bad example.`);
   });
-  sourceRules.forEach((rule) => {
+  jsonFormatRules.forEach((rule) => {
     const good = rule.check(rule.good);
     const bad = rule.check(rule.bad);
 
@@ -239,7 +239,7 @@ if (require.main === module) {
 }
 
 module.exports = {
-  sourceRules,
+  jsonFormatRules,
   contentRules,
   fragmentToDom,
 };

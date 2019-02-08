@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { sourceRules, contentRules, fragmentToDom } = require('./linting-rules');
+const { jsonFormatRules, contentRules, fragmentToDom } = require('./linting-rules');
 
 const walk = (directory, callback) => {
   fs.readdirSync(directory).forEach((filename) => {
@@ -26,8 +26,8 @@ const collectJSON = (directory) => {
 const lintSource = (filepath, data) => {
   let passes = true;
 
-  for (let index = 0; index < sourceRules.length; index += 1) {
-    const rule = sourceRules[index];
+  for (let index = 0; index < jsonFormatRules.length; index += 1) {
+    const rule = jsonFormatRules[index];
     const result = rule.check(data);
 
     if (!result.passes) {
