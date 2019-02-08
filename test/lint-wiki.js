@@ -12,7 +12,8 @@ const jsdom = require('jsdom');
 const { properties } = require('mdn-data').css;
 const { contentRules, fragmentToDom } = require('./linting-rules');
 
-const wikiRules = contentRules.filter(rule => rule.wiki !== false);
+const excludedRules = ['no-nbsps', 'no-forbidden-attrs'];
+const wikiRules = contentRules.filter(rule => !excludedRules.includes(rule.name));
 
 const nameToURL = (property) => {
   // turn a CSS property name into an raw MDN page summary URL
