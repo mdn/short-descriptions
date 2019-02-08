@@ -22,13 +22,11 @@ const forbiddenAttrs = (dom) => {
   const badAttrs = [];
 
   dom.querySelectorAll('*').forEach((elem) => {
-    const allowedAttrs = allowedTags[elem.tagName];
+    const allowedAttrs = allowedTags[elem.tagName] || [];
 
-    if (allowedAttrs) {
-      const attrNames = Array.from(elem.attributes).map(value => value.name);
-      attrNames.filter(attr => !allowedAttrs.includes(attr))
-        .forEach(attr => badAttrs.push(`${elem.tagName}.${attr}`));
-    }
+    const attrNames = Array.from(elem.attributes).map(value => value.name);
+    attrNames.filter(attr => !allowedAttrs.includes(attr))
+      .forEach(attr => badAttrs.push(`${elem.tagName}.${attr}`));
   });
 
   return badAttrs;
@@ -128,7 +126,7 @@ const contentRules = [
   },
   {
     description: 'Only use allowed attributes',
-    bad: '<a data-random="v7mm9m5c" href="https://developer.mozilla.org/">MDN Web Docs</a>',
+    bad: 'This has two bad attributes: <a data-random="v7mm9m5c" href="https://developer.mozilla.org/">MDN Web Docs</a><br data-forbidden-tag="">',
     good: '<a href="https://developer.mozilla.org/">MDN Web Docs</a>',
     wiki: false,
     check(dom) {
