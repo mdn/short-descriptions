@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
-const { jsonFormatRules, contentRules, fragmentToDom } = require('./linting-rules');
+const { jsonFormatRules } = require('./json-format-rules');
+const { contentRules, fragmentToDom } = require('./content-rules');
 
 const walk = (directory, callback) => {
   fs.readdirSync(directory).forEach((filename) => {

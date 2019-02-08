@@ -10,7 +10,7 @@ const readline = require('readline');
 
 const jsdom = require('jsdom');
 const { properties } = require('mdn-data').css;
-const { contentRules, fragmentToDom } = require('./linting-rules');
+const { contentRules, fragmentToDom } = require('./content-rules');
 
 const excludedRules = ['no-nbsps', 'no-forbidden-attrs'];
 const wikiRules = contentRules.filter(rule => !excludedRules.includes(rule.name));
