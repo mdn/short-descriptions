@@ -16,8 +16,10 @@
     "request": "^2.88.0"
   },
   "scripts": {
+    "test": "npm run lint-js && node test/json-format-rules.js && node test/content-rules.js && npm run lint-json",
     "lint-js": "eslint test/*.js scripts/*.js",
-    "lint-short-descriptions": "node test/lint-short-descriptions.js",
+    "lint-json": "node test/lint-json.js",
+    "lint-wiki": "node test/lint-wiki.js",
     "scrape": "node scripts/scrape.js"
   },
   "repository": {
