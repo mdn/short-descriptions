@@ -91,6 +91,7 @@ const main = () => {
   if (failures.length) {
     console.log(`${failures.length} descriptions failed one or more checks:`);
     failures.forEach(result => console.log(`  ${result.filepath}`));
+    process.exit(1);
   }
 };
 
