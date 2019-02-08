@@ -80,7 +80,6 @@ const contentRules = [
     description: '"&nbsp;" shouldn\'t be used',
     bad: 'Use&nbsp;literal&nbsp;spaces.',
     good: 'Use literal spaces.',
-    wiki: false,
     check(dom) {
       const html = dom.innerHTML;
 
@@ -128,7 +127,6 @@ const contentRules = [
     description: 'Only use allowed attributes',
     bad: 'This has two bad attributes: <a data-random="v7mm9m5c" href="https://developer.mozilla.org/">MDN Web Docs</a><br data-forbidden-tag="">',
     good: '<a href="https://developer.mozilla.org/">MDN Web Docs</a>',
-    wiki: false,
     check(dom) {
       const badAttrs = forbiddenAttrs(dom);
 
