@@ -36,6 +36,7 @@ const ok = { passes: true, errors: [] };
 
 const contentRules = [
   {
+    name: 'max-sentence-length',
     description: `First sentence should not exceed ${maxFirstSentenceLength} characters`,
     bad: 'This is a very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very long first sentence. This is the second sentence.',
     good: 'This is a short first sentence. This is the second sentence.',
@@ -57,6 +58,7 @@ const contentRules = [
     },
   },
   {
+    name: 'max-length',
     description: `Overall length should not exceed ${maxLength} characters`,
     bad: "This is an example. This is an example. This is an example. This is an example. This is an example. This is an example. This is an example. This is an example. This is an example. But now we've gone on too long.",
     good: 'This is short and sweet.',
@@ -77,6 +79,7 @@ const contentRules = [
     },
   },
   {
+    name: 'no-nbsps',
     description: '"&nbsp;" shouldn\'t be used',
     bad: 'Use&nbsp;literal&nbsp;spaces.',
     good: 'Use literal spaces.',
@@ -98,6 +101,7 @@ const contentRules = [
     },
   },
   {
+    name: 'no-forbidden-tags',
     description: 'Only use allowed tags',
     bad: "<div>I am a poet<br> and didn't even know it.</div>",
     good: "I am a poet and didn't even know it.",
@@ -124,6 +128,7 @@ const contentRules = [
     },
   },
   {
+    name: 'no-forbidden-attrs',
     description: 'Only use allowed attributes',
     bad: 'This has two bad attributes: <a data-random="v7mm9m5c" href="https://developer.mozilla.org/">MDN Web Docs</a><br data-forbidden-tag="">',
     good: '<a href="https://developer.mozilla.org/">MDN Web Docs</a>',
@@ -147,6 +152,7 @@ const contentRules = [
 
 const jsonFormatRules = [
   {
+    name: 'parseable',
     description: 'JSON must be parseable',
     bad: '{',
     good: '{}',
@@ -163,6 +169,7 @@ const jsonFormatRules = [
     },
   },
   {
+    name: 'formatted',
     description: 'JSON should be formatted as in `JSON.stringify(<source>, null, 2)`',
     bad: `{
 "css": {
