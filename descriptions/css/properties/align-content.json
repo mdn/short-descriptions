@@ -2,7 +2,7 @@
   "css": {
     "properties": {
       "align-content": {
-        "__short_description": "The <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> <strong><code>align-content</code></strong> property sets the distribution of space around content items of a <a href='https://developer.mozilla.org/docs/Web/CSS/CSS_Flexible_Box_Layout'>flexbox</a> or <a href='https://developer.mozilla.org/docs/Web/CSS/CSS_Grid_Layout'>grid</a> container. It applies to a flexbox's cross-axis or a grid's tracks."
+        "__short_description": "The <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> <strong><code>align-content</code></strong> property sets the distribution of space between and around content items along a <a href='https://developer.mozilla.org/docs/Web/CSS/CSS_Flexible_Box_Layout'>flexbox</a>'s cross-axis or a <a href='https://developer.mozilla.org/docs/Web/CSS/CSS_Grid_Layout'>grid</a>'s block axis."
       }
     }
   }
