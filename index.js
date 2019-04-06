@@ -1,6 +1,6 @@
+const extend = require('extend');
 const fs = require('fs');
 const path = require('path');
-const extend = require('extend');
 
 function walk(directory, callback) {
   fs.readdirSync(directory).forEach((filename) => {
