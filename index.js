@@ -24,7 +24,7 @@ function collectJSON(directory) {
 }
 
 function loadJSON() {
-  const jsons = collectJSON('./descriptions');
+  const jsons = collectJSON(path.resolve(__dirname, './descriptions'));
   const finalObj = {};
 
   jsons.forEach((json) => {
