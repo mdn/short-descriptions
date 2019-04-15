@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "background-origin": {
+        "__short_description": "The <strong><code>background-origin</code></strong> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property sets the <em>background positioning area</em>. In other words, it sets the origin position of an image set with the <a href='https://developer.mozilla.org/docs/Web/CSS/background-image'><code>background-image</code></a> property."
+      }
+    }
+  }
+}
