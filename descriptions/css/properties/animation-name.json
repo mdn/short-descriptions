@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "animation-name": {
+        "__short_description": "The <strong><code>animation-name</code></strong> <a href='https://developer.mozilla.org/docs/CSS'>CSS</a> property sets one or more animations to apply to an element. Each name is an <a href='https://developer.mozilla.org/docs/Web/CSS/@keyframes'><code>@keyframes</code></a> at-rule that sets the property values for the animation sequence."
+      }
+    }
+  }
+}

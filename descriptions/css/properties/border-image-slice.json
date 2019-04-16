@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "border-image-slice": {
+        "__short_description": "The <strong><code>border-image-slice</code></strong> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property divides the image specified by <a href='https://developer.mozilla.org/docs/Web/CSS/border-image-source'><code>border-image-source</code></a> into regions. These regions form the components of an element's <a href='https://developer.mozilla.org/docs/Web/CSS/border-image'>border image</a>."
+      }
+    }
+  }
+}
