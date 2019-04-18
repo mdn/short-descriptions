@@ -2,7 +2,7 @@
   "css": {
     "properties": {
       "border-left": {
-        "__short_description": "The <strong><code>border-left</code></strong> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property is a shorthand that sets the values of <a href='https://developer.mozilla.org/docs/Web/CSS/border-left-width'><code>border-left-width</code></a>, <a href='https://developer.mozilla.org/docs/Web/CSS/border-left-style'><code>border-left-style</code></a> and <a href='https://developer.mozilla.org/docs/Web/CSS/border-left-color'><code>border-left-color</code></a>."
+        "__short_description": "The <strong><code>border-left</code></strong> <a href='https://developer.mozilla.org/docs/Web/CSS/Shorthand_properties'>shorthand</a> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property set an element's left <a href='https://developer.mozilla.org/docs/Web/CSS/border'>border</a>."
       }
     }
   }
