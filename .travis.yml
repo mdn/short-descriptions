@@ -1,0 +1,15 @@
+language: node_js
+node_js: stable
+sudo: false
+notifications:
+  email: false
+script:
+  - npm test
+  - bash test/test-built-package.sh
+deploy:
+  provider: npm
+  email: mdn-npm@mozilla.com
+  api_key: $NPM_TOKEN
+  on:
+    tags: true
+    repo: mdn/short-descriptions
