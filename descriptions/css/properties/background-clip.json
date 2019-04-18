@@ -2,7 +2,7 @@
   "css": {
     "properties": {
       "background-clip": {
-        "__short_description": "The <strong><code>background-clip</code></strong> CSS property sets whether an element's background <a href='https://developer.mozilla.org/docs/Web/CSS/color_value'><code>&lt;color&gt;</code></a> or <a href='https://developer.mozilla.org/docs/Web/CSS/image'><code>&lt;image&gt;</code></a> extends underneath its border."
+        "__short_description": "The <strong><code>background-clip</code></strong> CSS property sets whether an element's background extends underneath its border box, padding box, or content box."
       }
     }
   }

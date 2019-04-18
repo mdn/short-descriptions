@@ -2,7 +2,7 @@
   "css": {
     "properties": {
       "border-bottom": {
-        "__short_description": "The <strong><code>border-bottom</code></strong> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property is a shorthand that sets the values of <a href='https://developer.mozilla.org/docs/Web/CSS/border-bottom-width'><code>border-bottom-width</code></a>, <a href='https://developer.mozilla.org/docs/Web/CSS/border-bottom-style'><code>border-bottom-style</code></a> and <a href='https://developer.mozilla.org/docs/Web/CSS/border-bottom-color'><code>border-bottom-color</code></a>."
+        "__short_description": "The <strong><code>border-bottom</code></strong> <a href='https://developer.mozilla.org/docs/Web/CSS/Shorthand_properties'>shorthand</a> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property sets an element's bottom <a href='https://developer.mozilla.org/docs/Web/CSS/border'>border</a>."
       }
     }
   }
