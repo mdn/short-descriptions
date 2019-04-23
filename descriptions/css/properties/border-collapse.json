@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "border-collapse": {
+        "__short_description": "The <strong><code>border-collapse</code></strong> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property sets whether cells inside a <a href='https://developer.mozilla.org/docs/Web/HTML/Element/table'><code>&lt;table&gt;</code></a> have shared or separate borders."
+      }
+    }
+  }
+}

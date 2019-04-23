@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "animation": {
+        "__short_description": "The <strong><code>animation</code></strong> <a href='https://developer.mozilla.org/docs/Web/CSS/Shorthand_properties'>shorthand</a> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property applies an animation between styles."
+      }
+    }
+  }
+}

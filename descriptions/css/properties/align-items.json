@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "align-items": {
+        "__short_description": "The <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> <strong><code>align-items</code></strong> property sets the <a href='https://developer.mozilla.org/docs/Web/CSS/align-self'><code>align-self</code></a> value on all direct children as a group."
+      }
+    }
+  }
+}

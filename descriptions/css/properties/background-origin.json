@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "background-origin": {
+        "__short_description": "The <strong><code>background-origin</code></strong> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property sets the background's origin: from the border start, inside the border, or inside the padding."
+      }
+    }
+  }
+}

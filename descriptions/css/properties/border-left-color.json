@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "border-left-color": {
+        "__short_description": "The <strong><code>border-left-color</code></strong> CSS property sets the color of an element's left <a href='https://developer.mozilla.org/docs/Web/CSS/border'>border</a>."
+      }
+    }
+  }
+}

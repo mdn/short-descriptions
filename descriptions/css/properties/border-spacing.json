@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "border-spacing": {
+        "__short_description": "The <strong><code>border-spacing</code></strong> CSS property sets the distance between the borders of adjacent <a href='https://developer.mozilla.org/docs/Web/HTML/Element/table'><code>&lt;table&gt;</code></a> cells. This property applies only when <a href='https://developer.mozilla.org/docs/Web/CSS/border-collapse'><code>border-collapse</code></a> is <code>separate</code>."
+      }
+    }
+  }
+}

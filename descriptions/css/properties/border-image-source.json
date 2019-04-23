@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "border-image-source": {
+        "__short_description": "The <strong><code>border-image-source</code></strong> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property sets the source image used to create an element's <a href='https://developer.mozilla.org/docs/Web/CSS/border-image'>border image</a>."
+      }
+    }
+  }
+}

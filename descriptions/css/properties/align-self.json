@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "align-self": {
+        "__short_description": "The <strong><code>align-self</code></strong> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property overrides a grid or flex item's <a href='https://developer.mozilla.org/docs/Web/CSS/align-items'><code>align-items</code></a> value. In Grid, it aligns the item inside the <a href='https://developer.mozilla.org/docs/Glossary/Grid_Areas'>grid area</a>. In Flexbox, it aligns the item on the <a href='https://developer.mozilla.org/docs/Glossary/Cross_Axis'>cross axis</a>."
+      }
+    }
+  }
+}
