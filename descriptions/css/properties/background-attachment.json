@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "background-attachment": {
+        "__short_description": "The <strong><code>background-attachment</code></strong> <a href='https://developer.mozilla.org/docs/CSS'>CSS</a> property sets whether a background image's position is fixed within the <a href='https://developer.mozilla.org/docs/Glossary/viewport'>viewport</a>, or scrolls with its containing block."
+      }
+    }
+  }
+}

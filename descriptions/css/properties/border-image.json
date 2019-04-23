@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "border-image": {
+        "__short_description": "The <strong><code>border-image</code></strong> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property draws an image in place of an element's <a href='https://developer.mozilla.org/docs/Web/CSS/border-style'><code>border-style</code></a>."
+      }
+    }
+  }
+}

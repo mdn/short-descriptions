@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "all": {
+        "__short_description": "The <code><strong>all</strong></code> <a href='https://developer.mozilla.org/docs/Web/CSS/Shorthand_properties'>shorthand</a> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property resets all of an element's properties (except <a href='https://developer.mozilla.org/docs/Web/CSS/unicode-bidi'><code>unicode-bidi</code></a> and <a href='https://developer.mozilla.org/docs/Web/CSS/direction'><code>direction</code></a>)."
+      }
+    }
+  }
+}

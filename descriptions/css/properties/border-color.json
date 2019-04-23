@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "border-color": {
+        "__short_description": "The <strong><code>border-color</code></strong> <a href='https://developer.mozilla.org/docs/Web/CSS/Shorthand_properties'>shorthand</a> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property sets the color of an element's border."
+      }
+    }
+  }
+}

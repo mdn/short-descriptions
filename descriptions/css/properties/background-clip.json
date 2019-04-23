@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "background-clip": {
+        "__short_description": "The <strong><code>background-clip</code></strong> CSS property sets whether an element's background extends underneath its border box, padding box, or content box."
+      }
+    }
+  }
+}

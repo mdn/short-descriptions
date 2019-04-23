@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "background-position": {
+        "__short_description": "The <strong><code>background-position</code></strong> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property sets the initial position for each background image. The position is relative to the position layer set by <a href='https://developer.mozilla.org/docs/Web/CSS/background-origin'><code>background-origin</code></a>."
+      }
+    }
+  }
+}
