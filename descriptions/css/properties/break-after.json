@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "break-after": {
+        "__short_description": "The <strong><code>break-after</code></strong> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property sets how page, column, or region breaks should behave after a generated box. If there is no generated box, the property is ignored."
+      }
+    }
+  }
+}

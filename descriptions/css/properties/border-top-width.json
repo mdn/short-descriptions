@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "border-top-width": {
+        "__short_description": "The <strong><code>border-top-width</code></strong> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property sets the width of the top border of an element."
+      }
+    }
+  }
+}

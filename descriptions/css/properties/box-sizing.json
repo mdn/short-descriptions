@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "box-sizing": {
+        "__short_description": "The <strong><code>box-sizing</code></strong> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property sets how the total width and height of an element is calculated."
+      }
+    }
+  }
+}

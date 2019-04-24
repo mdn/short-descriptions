@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "caret-color": {
+        "__short_description": "The <strong><code>caret-color</code></strong> CSS property sets the color of the insertion caret, the visible marker where the next character typed will be inserted."
+      }
+    }
+  }
+}

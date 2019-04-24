@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "bottom": {
+        "__short_description": "The <strong><code>bottom</code></strong> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property participates in setting the vertical position of a <a href='https://developer.mozilla.org/docs/Web/CSS/position'>positioned element</a>. It has no effect on non-positioned elements."
+      }
+    }
+  }
+}
