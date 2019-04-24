@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "text-overflow": {
+        "__short_description": "The <strong><code>text-overflow</code></strong> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property sets how hidden overflow content is signaled to users. It can be clipped, display an ellipsis ('<code>…</code>'), or display a custom string."
+      }
+    }
+  }
+}

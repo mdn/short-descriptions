@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "pointer-events": {
+        "__short_description": "The <strong> <code>pointer-events</code></strong> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property sets under what circumstances (if any) a particular graphic element can become the <a href='https://developer.mozilla.org/docs/Web/API/Event/target'>target</a> of pointer events."
+      }
+    }
+  }
+}

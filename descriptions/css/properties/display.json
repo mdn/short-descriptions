@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "display": {
+        "__short_description": "The <strong><code>display</code></strong> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property sets an element's inner and outer display types. The outer type sets an element's participation in <a href='https://developer.mozilla.org/docs/Web/CSS/CSS_Flow_Layout'>flow layout</a>; the inner type sets the layout of children."
+      }
+    }
+  }
+}

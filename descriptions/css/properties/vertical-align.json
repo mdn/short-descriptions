@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "vertical-align": {
+        "__short_description": "The <strong><code>vertical-align</code></strong> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property sets vertical alignment of an inline or table-cell box."
+      }
+    }
+  }
+}

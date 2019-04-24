@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "font-size": {
+        "__short_description": "The <strong><code>font-size</code></strong> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property sets the size of the font."
+      }
+    }
+  }
+}
