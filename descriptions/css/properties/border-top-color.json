@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "border-top-color": {
+        "__short_description": "The <strong><code>border-top-color</code></strong> CSS property sets the color of an element's top <a href='https://developer.mozilla.org/docs/Web/CSS/border'>border</a>."
+      }
+    }
+  }
+}

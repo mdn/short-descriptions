@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "border-top-left-radius": {
+        "__short_description": "The <strong><code>border-top-left-radius</code></strong> CSS property rounds the top-left corner of an element."
+      }
+    }
+  }
+}

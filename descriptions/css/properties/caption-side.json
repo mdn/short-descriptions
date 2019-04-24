@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "caption-side": {
+        "__short_description": "The <strong><code>caption-side</code></strong> <a href='https://developer.mozilla.org/CSS'>CSS</a> property puts the content of a table's <a href='https://developer.mozilla.org/docs/Web/HTML/Element/caption'><code>&lt;caption&gt;</code></a> on the specified side. The values are relative to the <a href='https://developer.mozilla.org/docs/Web/CSS/writing-mode'><code>writing-mode</code></a> of the table."
+      }
+    }
+  }
+}
