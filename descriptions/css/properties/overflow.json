@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "overflow": {
+        "__short_description": "The <strong><code>overflow</code></strong> <a href='https://developer.mozilla.org/docs/Web/CSS/Shorthand_properties'>shorthand</a> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property sets what to do when an element's content is too big to fit in its <a href='https://developer.mozilla.org/docs/CSS/block_formatting_context'>block formatting context</a>."
+      }
+    }
+  }
+}

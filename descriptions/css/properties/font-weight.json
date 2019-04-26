@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "font-weight": {
+        "__short_description": "The <strong><code>font-weight</code></strong> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property sets the weight (or boldness) of the font. The weights available depend on the <a href='https://developer.mozilla.org/docs/Web/CSS/font-family'><code>font-family</code></a> you are using."
+      }
+    }
+  }
+}

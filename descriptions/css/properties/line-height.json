@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "line-height": {
+        "__short_description": "The <strong><code>line-height</code></strong> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property sets the height of a line box. It's commonly used to set the distance between lines of text."
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "display": {
+        "__short_description": "The <strong><code>display</code></strong> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property sets whether an element is treated as a <a href='https://developer.mozilla.org/docs/Web/CSS/CSS_Flow_Layout'>block or inline element</a> and the layout used for its children, such as <a href='https://developer.mozilla.org/docs/Web/CSS/CSS_Grid_Layout'>grid</a> or <a href='https://developer.mozilla.org/docs/Web/CSS/CSS_Flexible_Box_Layout'>flex</a>."
+      }
+    }
+  }
+}

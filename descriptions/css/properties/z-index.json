@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "z-index": {
+        "__short_description": "The <strong><code>z-index</code></strong> CSS property sets the z-order of a <a href='https://developer.mozilla.org/docs/Web/CSS/position'>positioned</a> element and its descendants or flex items. Overlapping elements with a larger z-index cover those with a smaller one."
+      }
+    }
+  }
+}

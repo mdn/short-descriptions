@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "flex": {
+        "__short_description": "The <strong><code>flex</code></strong> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property sets how a flex item will grow or shrink to fit the space available in its flex container."
+      }
+    }
+  }
+}

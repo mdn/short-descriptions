@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "transform": {
+        "__short_description": "The <strong><code>transform</code></strong> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property lets you rotate, scale, skew, or translate an element. It modifies the coordinate space of the CSS <a href='https://developer.mozilla.org/docs/Web/CSS/Visual_formatting_model'>visual formatting model</a>."
+      }
+    }
+  }
+}
