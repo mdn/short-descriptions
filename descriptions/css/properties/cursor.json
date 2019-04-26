@@ -2,7 +2,7 @@
   "css": {
     "properties": {
       "cursor": {
-        "__short_description": "The <strong><code>cursor</code></strong> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property sets the cursor to show when the mouse pointer is over an element."
+        "__short_description": "The <strong><code>cursor</code></strong> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property sets the type of cursor, if any, to show when the mouse pointer is over an element."
       }
     }
   }
