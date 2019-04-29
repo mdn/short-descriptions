@@ -1,6 +1,6 @@
 {
   "name": "mdn-short-descriptions",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Short descriptions of web technologies from MDN Web Docs",
   "main": "index.js",
   "directories": {
