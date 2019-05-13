@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "color": {
+        "__short_description": "The <strong><code>color</code></strong> CSS property sets the foreground <a href='https://developer.mozilla.org/docs/Web/CSS/color_value'>color value</a> of an element's text and <a href='https://developer.mozilla.org/docs/Web/CSS/text-decoration'>text decorations</a>, and sets the <a href='https://developer.mozilla.org/docs/Web/CSS/currentcolor'><code>currentcolor</code></a> value."
+      }
+    }
+  }
+}

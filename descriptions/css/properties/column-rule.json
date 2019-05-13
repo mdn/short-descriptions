@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "column-rule": {
+        "__short_description": "The <strong><code>column-rule</code></strong> <a href='https://developer.mozilla.org/docs/Web/CSS/Shorthand_properties'>shorthand</a> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property sets the width, style, and color of the line drawn between columns in a multi-column layout."
+      }
+    }
+  }
+}

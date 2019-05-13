@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "column-count": {
+        "__short_description": "The <strong><code>column-count</code></strong> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property breaks an element's content into the specified number of columns."
+      }
+    }
+  }
+}

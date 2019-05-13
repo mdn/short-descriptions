@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "clear": {
+        "__short_description": "The <strong><code>clear</code></strong> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property sets whether an element must be moved below (cleared) <a href='https://developer.mozilla.org/docs/Web/CSS/float'>floating</a> elements that precede it. The <code>clear</code> property applies to floating and non-floating elements."
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "column-rule-color": {
+        "__short_description": "The<strong> <code>column-rule-color</code></strong> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property sets the color of the line drawn between columns in a multi-column layout."
+      }
+    }
+  }
+}

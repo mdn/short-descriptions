@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "clip-path": {
+        "__short_description": "The <code><strong>clip-path</strong></code> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property creates a clipping region that sets what part of an element should be shown. Parts that are inside the region are shown, while those outside are hidden."
+      }
+    }
+  }
+}

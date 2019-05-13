@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "column-fill": {
+        "__short_description": "The <strong><code>column-fill</code></strong> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property controls how an element's contents are balanced when broken into columns."
+      }
+    }
+  }
+}

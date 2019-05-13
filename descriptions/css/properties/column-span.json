@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "column-span": {
+        "__short_description": "The <strong><code>column-span</code></strong> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property makes it possible for an element to span across all columns when its value is set to <code>all</code>."
+      }
+    }
+  }
+}

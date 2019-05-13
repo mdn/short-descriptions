@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "content": {
+        "__short_description": "The <strong><code>content</code></strong> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property replaces an element with a generated value. Objects inserted using the <code>content</code> property are <em>anonymous <a href='https://developer.mozilla.org/docs/Web/CSS/Replaced_element'>replaced elements</a>.</em>"
+      }
+    }
+  }
+}

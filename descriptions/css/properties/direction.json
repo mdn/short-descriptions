@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "direction": {
+        "__short_description": "The <strong><code>direction</code></strong> CSS property sets the direction of text, table columns, and horizontal overflow."
+      }
+    }
+  }
+}
