@@ -10,9 +10,11 @@ Short descriptions will be consistent with the following guidelines:
 * Short descriptions must not mention support or standards status.
 * Short descriptions should mention relevant keywords and topic areas (e.g., a property that affects layout should mention the word "layout" and perhaps the model in which it applies, such as "grid").
 * Short descriptions should avoid the use of words like "specifies", "defines", or "determines" when the word "sets" is just as good and results in no loss of meaning.
+* Short descriptions for shorthand properties should not name every property that they set.
 
 * Short descriptions should describe, in the active voice, what a CSS property does. "The `some-property` CSS property sets the …" is a good pattern for starting a short description.
 * Short descriptions should contain the name of the CSS property and the phrase "CSS property".
+* Short descriptions should use the word "shorthand" if the property is a shorthand and link to a page about shorthands.
 
 <a name="footnote1">1</a>: Checked by linter on this repo.
 
