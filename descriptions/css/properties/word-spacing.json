@@ -1,0 +1,9 @@
+{
+  "css": {
+    "properties": {
+      "word-spacing": {
+        "__short_description": "The <strong><code>word-spacing</code></strong> <a href='https://developer.mozilla.org/docs/Web/CSS'>CSS</a> property sets the length of space between words and between tags."
+      }
+    }
+  }
+}
