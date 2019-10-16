@@ -1,6 +1,8 @@
+This project is being superseded by other MDN projects. Check out https://github.com/mdn/stumptown-content for details.
+
 # [MDN short descriptions](https://github.com/mdn/short-descriptions)
 
-Maintained by the [MDN team at Mozilla](https://wiki.mozilla.org/MDN).
+Formerly maintained by the [MDN team at Mozilla](https://wiki.mozilla.org/MDN).
 
 This project provides short, summary descriptions of technologies documented on
 [MDN](https://developer.mozilla.org/). In other words, we scrape MDN so you
